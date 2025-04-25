@@ -1,5 +1,6 @@
 const successResponse = require("../common/response/successResponse");
 const cartService = require("../services/cartService");
+const checkoutService = require("../services/checkoutService");
 
 const cartController = {
     createCart: async (req, res, next) => {
@@ -50,9 +51,11 @@ const cartController = {
     },
     checkoutCart: async (req, res, next) => {
         try {
-            const {} = req.body;
+            const {cartId} = req.params;
 
-            return successResponse(res, {});
+            return successResponse(res,
+                await checkoutService.checkout(cartId)
+            );
         } catch (err) {
             next(err);
         }
