@@ -1,17 +1,14 @@
 const {Order} = require('../models');
+const axios = require('axios');
 
 const orderService = {
     createOrder: async (item) => {
-        const response = await new Promise((resolve) => {
-            setTimeout(() => {
-                resolve({success: true, item, orderId: Math.floor(Math.random() * 100000)}); // Mock Order API
-            }, 100);
-        });
+        const response = await axios.post('http://localhost:3001/mock-api/order', item);
 
         return (await Order.create({
-            orderId: response.orderId,
-            cartId: response.item.cartId,
-            cartItemId: response.item.id
+            orderId: response.data.data.orderId,
+            cartId: response.data.data.cartId,
+            cartItemId: response.data.data.cartItemId
         })).get({plain: true});
 
     }
