@@ -15,27 +15,35 @@ const cartController = {
     },
     addItem: async (req, res, next) => {
         try {
-            const {} = req.body;
+            const {cartId} = req.params;
+            const {productName, quantity} = req.body;
 
-            return successResponse(res, {});
+            return successResponse(res, {
+                ...await cartService.addItem({cartId, productName, quantity})
+            }, 'Item Added');
         } catch (err) {
             next(err);
         }
     },
     updateItem: async (req, res, next) => {
         try {
-            const {} = req.body;
+            const {cartId, itemId} = req.params;
+            const {quantity} = req.body;
 
-            return successResponse(res, {});
+            return successResponse(res, {
+                ...await cartService.updateItem({cartId, itemId, quantity})
+            }, 'Item Updated');
         } catch (err) {
             next(err);
         }
     },
     deleteItem: async (req, res, next) => {
         try {
-            const {} = req.body;
+            const {cartId, itemId} = req.params;
 
-            return successResponse(res, {});
+            return successResponse(res, {
+                ...await cartService.deleteItem({cartId, itemId})
+            }, 'Item Removed');
         } catch (err) {
             next(err);
         }

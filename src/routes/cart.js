@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post('/', isAuthenticatedUser, hasRole('customer'), cartController.createCart)
     .post('/:cartId/items', isAuthenticatedUser, hasRole('customer'), cartController.addItem)
-    .put('/:cartId/items/:itemId', isAuthenticatedUser, hasRole('customer'), cartController.updateItem)
+    .patch('/:cartId/items/:itemId', isAuthenticatedUser, hasRole('customer'), cartController.updateItem)
     .delete('/:cartId/items/:itemId', isAuthenticatedUser, hasRole('customer'), cartController.deleteItem)
     .post('/:cartId/checkout', isAuthenticatedUser, hasRole('customer'), cartController.checkoutCart);
 
