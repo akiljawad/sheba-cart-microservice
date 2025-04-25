@@ -5,27 +5,23 @@ const CartStatus = require("../common/enums/cartStatus");
 
 const checkoutService = {
     checkout: async (cartId) => {
-        try {
-            const cart = await Cart.findByPk(cartId, {
-                include: [{model: CartItem}],
-            });
-            if (!cart) throw new BadRequestError('Cart not found');
+        const cart = await Cart.findByPk(cartId, {
+            include: [{model: CartItem}],
+        });
+        if (!cart) throw new BadRequestError('Cart not found');
 
-            const results = [];
+        const results = [];
 
-            for (const item of cart.CartItems) {
-                const order = await orderService.createOrder(item);
+        for (const item of cart.CartItems) {
+            const order = await orderService.createOrder(item);
 
-                results.push(order);
-            }
-
-            cart.status = CartStatus.ORDERED;
-            await cart.save();
-
-            return results;
-        } catch (err) {
-            throw err;
+            results.push(order);
         }
+
+        cart.status = CartStatus.ORDERED;
+        await cart.save();
+
+        return results;
     }
 };
 

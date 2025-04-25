@@ -12,5 +12,7 @@ module.exports = {
         dialect: process.env.DB_DIALECT || 'mysql',
     },
     jwtToken: process.env.JWT_SECRET || "Lkbn1h?b5IQE&ucKIt{y3?PpCGDw%S3k6tbM:/WoI>+2qO8o",
-    jwtRefreshToken: process.env.JWT_REFRESH_SECRET || "PpCGDw%S3k6tbM:/WoI>+2qO8oLkbn1h?b5IQE&ucKIt{y3?",
+    jwtExpires: process.env.JWT_EXPIRES || "Lkbn1h?b5IQE&ucKIt{y3?PpCGDw%S3k6tbM:/WoI>+2qO8o",
+    jwtRefreshToken: process.env.JWT_REFRESH_SECRET || "15m",
+    jwtRefreshExpires: process.env.JWT_REFRESH_EXPIRES || "1d",
 };
