@@ -18,6 +18,7 @@ const Cart = sequelize.define('Cart', {
             CartStatus.ORDERED
         ),
         allowNull: false,
+        defaultValue: CartStatus.PENDING,
     },
 }, {
     timestamps: true

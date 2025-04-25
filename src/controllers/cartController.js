@@ -1,11 +1,14 @@
 const successResponse = require("../common/response/successResponse");
+const cartService = require("../services/cartService");
 
-const authController = {
+const cartController = {
     createCart: async (req, res, next) => {
         try {
-            const {} = req.body;
+            const {id} = req.user;
 
-            return successResponse(res, {});
+            return successResponse(res, {
+                ...await cartService.createCart({userId: id})
+            });
         } catch (err) {
             next(err);
         }
@@ -48,4 +51,4 @@ const authController = {
     },
 };
 
-module.exports = authController;
+module.exports = cartController;

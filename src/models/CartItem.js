@@ -18,6 +18,7 @@ const CartItem = sequelize.define('CartItem', {
     quantity: {
         type: DataTypes.STRING,
         allowNull: false,
+        defaultValue: 1,
     },
     status: {
         type: DataTypes.BOOLEAN(),
