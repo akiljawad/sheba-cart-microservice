@@ -1,15 +1,20 @@
 const sequelize = require('../config/db');
 const User = require('../models/User');
 const Cart = require('../models/Cart');
+const CartItem = require('../models/CartItem');
 
 const db = {
     sequelize,
     User,
-    Cart
+    Cart,
+    CartItem
 };
 
 db.User.hasMany(db.Cart, {foreignKey: 'userId'});
 db.Cart.belongsTo(db.User, {foreignKey: 'userId'});
+
+db.Cart.hasMany(db.CartItem, {foreignKey: 'cartId'});
+db.CartItem.belongsTo(db.Cart, {foreignKey: 'cartId'});
 
 (async () => {
     try {
