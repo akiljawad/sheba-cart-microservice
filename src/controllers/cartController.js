@@ -53,9 +53,9 @@ const cartController = {
         try {
             const {cartId} = req.params;
 
-            return successResponse(res, {
-                ...await checkoutService.checkout(cartId)
-            });
+            return successResponse(res,
+                await checkoutService.checkout(cartId)
+            );
         } catch (err) {
             next(err);
         }
