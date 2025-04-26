@@ -12,14 +12,15 @@ const cartService = {
         return (await Cart.create({userId})).get({plain: true});
     },
 
-    addItem: async ({cartId, productName, quantity}) => {
+    addItem: async ({cartId, serviceName, unitPrice, quantity}) => {
 
         const cart = await Cart.findByPk(cartId);
         if (!cart) throw new BadRequestError('Cart not found');
 
         return (await CartItem.create({
             cartId: cart.id,
-            productName,
+            serviceName,
+            unitPrice,
             quantity,
         })).get({plain: true});
     },
@@ -38,7 +39,7 @@ const cartService = {
         await item.save();
         return item.get({plain: true});
     },
-    
+
     deleteItem: async ({cartId, itemId}) => {
         const cart = await Cart.findByPk(cartId);
         if (!cart) throw new BadRequestError('Cart not found');
