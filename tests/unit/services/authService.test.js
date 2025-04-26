@@ -2,9 +2,7 @@ const User = require('../../../src/models/User');
 const {
     createUser, login, refreshToken
 } = require('../../../src/services/authService');
-const BadRequestError = require("../../../src/common/exceptions/badRequestError");
-const NotFoundError = require("../../../src/common/exceptions/notFoundError");
-const {fakeAdminUser, fakeCustomerUser, fakeCustomerLogin} = require('../../mocks');
+const {fakeCustomerUser, fakeCustomerLogin} = require('../../mocks');
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
 

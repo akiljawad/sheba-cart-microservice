@@ -37,7 +37,7 @@ const cartController = {
         const {cartId} = req.params;
 
         return successResponse(res,
-            await checkoutService.checkout(cartId)
+            await checkoutService.checkout({cartId})
         );
     },
 };

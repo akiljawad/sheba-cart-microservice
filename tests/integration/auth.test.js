@@ -1,6 +1,6 @@
 const request = require('supertest');
 const app = require('../../src/app');
-const {sequelize, Text} = require('../../src/models');
+const {sequelize} = require('../../src/models');
 const {fakeCustomerUser, fakeCustomerLogin} = require('../mocks');
 
 let refreshToken;
