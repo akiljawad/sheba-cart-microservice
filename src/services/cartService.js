@@ -1,10 +1,5 @@
 const {Cart, CartItem} = require('../models');
-const config = require('../config');
-const jwt = require('jsonwebtoken');
-const NotFoundError = require("../common/exceptions/notFoundError");
 const BadRequestError = require("../common/exceptions/badRequestError");
-const ForbiddenError = require("../common/exceptions/forbiddenError");
-const bcrypt = require("bcrypt");
 
 const cartService = {
     createCart: async ({userId}) => {

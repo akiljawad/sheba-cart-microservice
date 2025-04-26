@@ -4,7 +4,7 @@ const orderService = require("./orderService");
 const CartStatus = require("../common/enums/cartStatus");
 
 const checkoutService = {
-    checkout: async (cartId) => {
+    checkout: async ({cartId}) => {
         const cart = await Cart.findByPk(cartId, {
             include: [{model: CartItem}],
         });

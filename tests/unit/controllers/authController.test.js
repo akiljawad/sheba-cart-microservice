@@ -1,14 +1,11 @@
-const BadRequestError = require("../../../src/common/exceptions/badRequestError");
 const {createUser, login, refreshToken} = require('../../../src/controllers/authController');
-const {fakeAdminUser, fakeCustomerUser, fakeAdminLogin} = require('../../mocks');
+const {fakeAdminUser, fakeAdminLogin} = require('../../mocks');
 
 jest.mock("../../../src/common/response/successResponse");
 const successResponse = require("../../../src/common/response/successResponse");
 
 jest.mock('../../../src/services/authService');
 const authService = require('../../../src/services/authService');
-
-const asyncHandler = require("../../../src/common/utils/asyncHandler");
 
 describe('Auth Controller unit test', () => {
     let req, res, next;
@@ -33,7 +30,6 @@ describe('Auth Controller unit test', () => {
             expect(next).not.toHaveBeenCalled();
         });
     });
-
     describe('login', () => {
         it('should login -> get access token', async () => {
             req.body = {...fakeAdminLogin};
