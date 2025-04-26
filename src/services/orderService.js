@@ -3,7 +3,7 @@ const axios = require('axios');
 
 const orderService = {
     createOrder: async (item) => {
-        const response = await axios.post('http://localhost:3001/mock-api/order', item);
+        const response = await axios.post('http://localhost:3001/mock-api/order', item); // TODO make it for mock purpose. Change url to external api.
 
         return (await Order.create({
             orderId: response.data.data.orderId,
