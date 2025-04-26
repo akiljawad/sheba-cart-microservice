@@ -5,16 +5,16 @@
 ---
 
 ## 📚 Table of Contents
-- [About](#about)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-- [Environment Variables](#environment-variables)
-- [Running Tests](#running-tests)
-- [API Documentation](#api-documentation)
-- [Folder Structure](#folder-structure)
-- [Contributing](#contributing)
-- [License](#license)
+- [About](#-about)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Getting Started](#-getting-started)
+- [Environment Variables](#-environment-variables)
+- [Running Tests](#-running-tests)
+- [API Documentation](#-api-documentation)
+- [Folder Structure](#-folder-structure)
+- [Contributing](#-contributing)
+- [License](#-license)
 
 ---
 
