@@ -2,6 +2,7 @@ const express = require('express');
 const successResponse = require("../common/response/successResponse");
 const mockRouter = express.Router();
 
+// TODO make it for mock purpose. Change it to external api.
 mockRouter.post('/order', (req, res) => {
     const {id, cartId} = req.body;
 
