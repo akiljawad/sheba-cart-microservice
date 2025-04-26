@@ -12,8 +12,7 @@ const cartService = {
         return (await Cart.create({userId})).get({plain: true});
     },
 
-    addItem: async ({cartId, serviceName, unitPrice, quantity}) => {
-
+    addItem: async ({cartId, serviceName, unitPrice, quantity, scheduleTime}) => {
         const cart = await Cart.findByPk(cartId);
         if (!cart) throw new BadRequestError('Cart not found');
 
@@ -22,6 +21,7 @@ const cartService = {
             serviceName,
             unitPrice,
             quantity,
+            scheduleTime: new Date(scheduleTime),
         })).get({plain: true});
     },
 

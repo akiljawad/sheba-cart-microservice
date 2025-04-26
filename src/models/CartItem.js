@@ -15,6 +15,10 @@ const CartItem = sequelize.define('CartItem', {
         type: DataTypes.STRING,
         allowNull: false,
     },
+    scheduleTime: {
+        type: DataTypes.DATE,
+        allowNull: false,
+    },
     unitPrice: {
         type: DataTypes.INTEGER,
         allowNull: false,
