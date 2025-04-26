@@ -11,8 +11,12 @@ const CartItem = sequelize.define('CartItem', {
         type: DataTypes.INTEGER,
         allowNull: false,
     },
-    productName: {
+    serviceName: {
         type: DataTypes.STRING,
+        allowNull: false,
+    },
+    unitPrice: {
+        type: DataTypes.INTEGER,
         allowNull: false,
     },
     quantity: {

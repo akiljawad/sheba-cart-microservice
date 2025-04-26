@@ -12,10 +12,10 @@ const cartController = {
     },
     addItem: async (req, res) => {
         const {cartId} = req.params;
-        const {productName, quantity} = req.body;
+        const {serviceName, quantity, unitPrice} = req.body;
 
         return successResponse(res, {
-            ...await cartService.addItem({cartId, productName, quantity})
+            ...await cartService.addItem({cartId, serviceName, unitPrice, quantity})
         }, 'Item Added');
     },
     updateItem: async (req, res) => {

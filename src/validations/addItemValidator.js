@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
 const addItemValidator = Joi.object({
-    productName: Joi.string().required(),
+    serviceName: Joi.string().required(),
     quantity: Joi.number().required()
 });
 
